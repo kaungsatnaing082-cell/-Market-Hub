@@ -1,0 +1,28 @@
+{
+    "name": "krest-center",
+    "version": "1.0.0-final",
+    "private": true,
+    "description": "Krest Center final integrated marketplace - Admin, Seller and Buyer",
+    "main": "backend/src/server.js",
+    "scripts": {
+        "start": "node backend/src/server.js",
+        "dev": "nodemon backend/src/server.js",
+        "seed:admin": "node backend/scripts/seed-admin.js",
+        "seed:seller": "node backend/scripts/seed-demo-seller.js",
+        "seed:buyer": "node backend/scripts/seed-demo-buyer.js",
+        "audit": "node tests/project-audit.js",
+        "check": "node tests/project-audit.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "multer": "^2.0.2",
+        "mysql2": "^3.14.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}

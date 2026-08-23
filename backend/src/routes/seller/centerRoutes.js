@@ -1,0 +1,1 @@
+const r=require("express").Router(),a=require("../../middleware/authMiddleware"),s=require("../../middleware/sellerMiddleware"),c=require("../../controllers/seller/centerController");r.use(a,s);r.post("/center-request",c.submitRequest);r.get("/center-request",c.getRequest);r.get("/center",c.getCenter);r.put("/center",c.updateCenter);module.exports=r;

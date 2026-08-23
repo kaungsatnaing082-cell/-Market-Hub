@@ -1,0 +1,1 @@
+const r=require("express").Router(),a=require("../../middleware/authMiddleware"),s=require("../../middleware/sellerMiddleware"),c=require("../../controllers/seller/orderController");r.use(a,s);r.get("/",c.list);r.get("/:id",c.getOne);r.patch("/:id/status",c.updateStatus);module.exports=r;

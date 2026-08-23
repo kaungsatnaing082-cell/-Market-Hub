@@ -1,0 +1,115 @@
+.hero {
+    padding: 72px 0 54px;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 44px;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    margin: 20px 0 26px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 640px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.hero-visual {
+    min-height: 460px;
+    border-radius: 32px;
+    background: radial-gradient( circle at 20% 20%, rgba(255, 255, 255, 0.9), transparent 30%), linear-gradient(135deg, #1d4ed8, #0f766e);
+    padding: 26px;
+    position: relative;
+    color: #fff;
+    box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+}
+
+.hero-float {
+    position: absolute;
+    background: #fff;
+    color: var(--text);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    width: 220px;
+}
+
+.hero-float.one {
+    left: 22px;
+    bottom: 32px;
+}
+
+.hero-float.two {
+    right: 22px;
+    top: 32px;
+}
+
+.hero-center {
+    position: absolute;
+    inset: 110px 70px 100px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-center .big {
+    font-size: 5rem;
+}
+
+.trust-strip {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    color: #334155;
+    font-weight: 800;
+}
+
+.category-card {
+    padding: 22px;
+    text-align: center;
+}
+
+.category-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.cta {
+    padding: 36px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+/* Product option preview on public product detail */
+.public-variant-preview { margin-top: 18px; }
+.public-variant-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.public-variant-chip { padding: 7px 10px; border: 1px solid #bfdbfe; border-radius: 999px; background: #eff6ff; color: #1e40af; font-size: .82rem; font-weight: 750; }
+.public-variant-chip.disabled { opacity: .45; text-decoration: line-through; }

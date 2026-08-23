@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Market Hub</title>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/buyer.css" />
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/buyer/dashboard.html"><img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" /><span>Market Hub</span></a>
+            <div class="side-section">Buyer</div>
+            <a class="side-link" href="../../pages/buyer/dashboard.html">▦ Dashboard</a
+        >
+        <a class="side-link" href="../../pages/buyer/explore.html">⌕ Explore</a>
+            <a class="side-link" href="../../pages/buyer/products.html">▣ Products</a
+        >
+        <a class="side-link" href="../../pages/buyer/centers.html"
+          >🏪 Centers</a
+        >
+        <a class="side-link" href="../../pages/buyer/categories.html"
+          >◫ Categories</a
+        >
+        <div class="side-section">Shopping</div>
+        <a class="side-link" href="../../pages/buyer/cart.html"
+          >🛒 Cart <span class="badge info" id="sidebarCartCount">0</span></a
+        >
+        <a class="side-link" href="../../pages/buyer/orders.html">☷ Orders</a>
+            <a class="side-link" href="../../pages/buyer/wishlist.html">♡ Wishlist</a
+        >
+        <div class="side-section">Community</div>
+        <a class="side-link" href="../../pages/buyer/reviews.html">★ Reviews</a>
+            <a class="side-link" href="../../pages/buyer/reports.html">⚑ Reports</a>
+            <div class="side-section">Account</div>
+            <a class="side-link" href="../../pages/buyer/notifications.html">● Notifications</a
+        >
+        <a class="side-link" href="../../pages/buyer/profile.html">♙ Profile</a>
+            <a class="side-link" href="../../pages/buyer/settings.html">⚙ Settings</a
+        >
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰</button
+            ><strong>Market Hub Buyer</strong>
+          </div>
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/buyer/cart.html"
+              aria-label="Cart"
+              >🛒</a
+            ><a
+              class="icon-btn"
+              href="../../pages/buyer/notifications.html"
+              aria-label="Notifications"
+              >🔔</a
+            ><button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <div class="page-head">
+            <div>
+              <h1>Create Report</h1>
+              <p>Report a product, seller or center for Admin review.</p>
+            </div>
+          </div>
+          <div id="message" class="notice" hidden></div>
+          <form class="panel" id="reportForm" style="max-width: 800px">
+            <div class="form-grid">
+              <div class="field">
+                <label class="label">Target type</label
+                ><select class="select" id="targetType">
+                  <option value="PRODUCT">Product</option>
+                  <option value="CENTER">Center</option>
+                  <option value="SELLER">Seller</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="label">Target ID</label
+                ><input class="input" id="targetId" type="number" required />
+              </div>
+            </div>
+            <div class="field" style="margin-top: 16px">
+              <label class="label">Reason</label
+              ><select class="select" id="reason">
+                <option>Fake Product</option>
+                <option>Fraud</option>
+                <option>Wrong Product</option>
+                <option>Illegal Product</option>
+                <option>Harassment</option>
+                <option>Misleading Information</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field" style="margin-top: 16px">
+              <label class="label">Details</label
+              ><textarea class="textarea" id="details" required></textarea>
+            </div>
+            <div class="field" style="margin-top: 16px">
+              <label class="label">Evidence URL (optional)</label
+              ><input class="input" id="evidenceUrl" />
+            </div>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="margin-top: 16px"
+            >
+              Submit report
+            </button>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/buyer/buyer-guard.js"></script>
+    <script src="../../js/buyer/buyer-common.js"></script>
+    <script src="../../js/buyer/create-report.js"></script>
+  </body>
+</html>

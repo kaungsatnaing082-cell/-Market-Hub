@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Products | Market Hub</title>
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../../css/global.css" />
+
+    <link rel="stylesheet" href="../../css/components.css" />
+
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+
+    <link rel="stylesheet" href="../../css/admin.css" />
+
+    <link rel="stylesheet" href="../../css/seller.css" />
+
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <!-- ===================================================
+             SIDEBAR
+        ==================================================== -->
+
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/seller/dashboard.html">
+                <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+
+                <span> Market Hub </span>
+            </a>
+
+            <!-- SELLER -->
+
+            <div class="side-section">Seller</div>
+
+            <a class="side-link" href="../../pages/seller/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+            <!-- CENTER -->
+
+            <div class="side-section">Center</div>
+
+            <a class="side-link" href="../../pages/seller/center-request.html">
+          ◫ Center request
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-request-status.html">
+          ◎ Request status
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-profile.html">
+          🏪 Center profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/edit-center.html">
+          ✎ Edit center
+        </a>
+
+            <!-- COMMERCE -->
+
+            <div class="side-section">Commerce</div>
+
+            <a class="side-link active" href="../../pages/seller/products.html">
+          ▣ Products
+        </a>
+
+            <a class="side-link" href="../../pages/seller/add-product.html">
+          ＋ Add product
+        </a>
+
+            <a class="side-link" href="../../pages/seller/inventory.html">
+          ▤ Inventory
+        </a>
+
+            <a class="side-link" href="../../pages/seller/orders.html">
+          ☷ Orders
+        </a>
+
+            <!-- INSIGHTS -->
+
+            <div class="side-section">Insights</div>
+
+            <a class="side-link" href="../../pages/seller/reviews.html">
+          ★ Reviews
+        </a>
+
+            <a class="side-link" href="../../pages/seller/analytics.html">
+          ◈ Analytics
+        </a>
+
+            <a class="side-link" href="../../pages/seller/finance.html">
+          ◉ Finance
+        </a>
+
+            <!-- ACCOUNT -->
+
+            <div class="side-section">Account</div>
+
+            <a class="side-link" href="../../pages/seller/notifications.html">
+          ● Notifications
+        </a>
+
+            <a class="side-link" href="../../pages/seller/profile.html">
+          ♙ Profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/settings.html">
+          ⚙ Settings
+        </a>
+        </aside>
+
+        <!-- ===================================================
+             MAIN
+        ==================================================== -->
+
+        <div class="dashboard-main">
+            <!-- ===============================================
+                 TOPBAR
+            ================================================ -->
+
+            <header class="dashboard-topbar">
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <button class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="Open menu">
+              ☰
+            </button>
+
+                    <strong> Market Hub Seller </strong>
+                </div>
+
+                <div class="actions">
+                    <a class="icon-btn" href="../../pages/seller/notifications.html" aria-label="Notifications">
+              🔔
+            </a>
+
+                    <button class="btn btn-secondary" data-logout>Log out</button>
+                </div>
+            </header>
+
+            <!-- ===============================================
+                 CONTENT
+            ================================================ -->
+
+            <main class="dashboard-content">
+                <!-- ===========================================
+                     PAGE HEAD
+                ============================================ -->
+
+                <div class="page-head">
+                    <div>
+                        <h1>Products</h1>
+
+                        <p>Create, edit and manage your product listings.</p>
+                    </div>
+
+                    <a class="btn btn-primary" href="../../pages/seller/add-product.html">
+              ＋ Add Product
+            </a>
+                </div>
+
+                <!-- ===========================================
+                     FILTERS
+                ============================================ -->
+
+                <div style="
+              display: flex;
+              justify-content: space-between;
+              gap: 14px;
+              align-items: flex-start;
+              flex-wrap: wrap;
+              margin-bottom: 16px;
+            ">
+                    <div class="filter-row">
+                        <input class="input" id="productSearch" type="search" placeholder="Search your products" autocomplete="off" />
+
+                        <select class="select" id="productStatus" style="max-width: 190px">
+                <option value="">All statuses</option>
+
+                <option value="ACTIVE">ACTIVE</option>
+
+                <option value="DRAFT">DRAFT</option>
+
+                <option value="HIDDEN">HIDDEN</option>
+
+                <option value="OUT_OF_STOCK">OUT OF STOCK</option>
+              </select>
+                    </div>
+                </div>
+
+                <!-- ===========================================
+                     MESSAGE
+                ============================================ -->
+
+                <div id="message" class="notice" hidden></div>
+
+                <!-- ===========================================
+                     PRODUCT TABLE
+                ============================================ -->
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+
+                                <th>Category</th>
+
+                                <th>Price</th>
+
+                                <th>Stock</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="productRows">
+                            <tr>
+                                <td colspan="6" class="empty">Loading products...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../../js/shared/config.js"></script>
+
+    <script src="../../js/shared/storage.js"></script>
+
+    <script src="../../js/shared/api.js"></script>
+
+    <script src="../../js/shared/utils.js"></script>
+
+    <script src="../../js/shared/navigation.js"></script>
+
+    <script src="../../js/seller/seller-guard.js"></script>
+
+    <script src="../../js/seller/products.js"></script>
+</body>
+
+</html>

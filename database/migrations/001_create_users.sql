@@ -1,0 +1,1 @@
+-- See database/schema.sql for the canonical Part 1 schema. Migration 1 placeholder.

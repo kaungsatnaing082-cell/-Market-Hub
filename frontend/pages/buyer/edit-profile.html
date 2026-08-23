@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Market Hub</title>
+
+    <link rel="stylesheet" href="../../css/global.css" />
+
+    <link rel="stylesheet" href="../../css/components.css" />
+
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+
+    <link rel="stylesheet" href="../../css/buyer.css" />
+
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <!-- ===================================================
+           BUYER SIDEBAR
+      ==================================================== -->
+
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/buyer/dashboard.html">
+                <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+
+                <span>Market Hub</span>
+            </a>
+
+            <div class="side-section">Buyer</div>
+
+            <a class="side-link" href="../../pages/buyer/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/explore.html">
+          ⌕ Explore
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/products.html">
+          ▣ Products
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/centers.html">
+          🏪 Centers
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/categories.html">
+          ◫ Categories
+        </a>
+
+            <div class="side-section">Shopping</div>
+
+            <a class="side-link" href="../../pages/buyer/cart.html">
+          🛒 Cart
+
+          <span class="badge info" id="sidebarCartCount"> 0 </span>
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/orders.html">
+          ☷ Orders
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/wishlist.html">
+          ♡ Wishlist
+        </a>
+
+            <div class="side-section">Community</div>
+
+            <a class="side-link" href="../../pages/buyer/reviews.html">
+          ★ Reviews
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/reports.html">
+          ⚑ Reports
+        </a>
+
+            <div class="side-section">Account</div>
+
+            <a class="side-link" href="../../pages/buyer/notifications.html">
+          ● Notifications
+        </a>
+
+            <a class="side-link active" href="../../pages/buyer/profile.html">
+          ♙ Profile
+        </a>
+
+            <a class="side-link" href="../../pages/buyer/settings.html">
+          ⚙ Settings
+        </a>
+        </aside>
+
+        <!-- ===================================================
+           MAIN
+      ==================================================== -->
+
+        <div class="dashboard-main">
+            <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+            <header class="dashboard-topbar">
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <button class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="Open menu">
+              ☰
+            </button>
+
+                    <strong> Market Hub Buyer </strong>
+                </div>
+
+                <div class="actions">
+                    <a class="icon-btn" href="../../pages/buyer/cart.html" aria-label="Cart">
+              🛒
+            </a>
+
+                    <a class="icon-btn" href="../../pages/buyer/notifications.html" aria-label="Notifications">
+              🔔
+            </a>
+
+                    <button class="btn btn-secondary" data-logout>Log out</button>
+                </div>
+            </header>
+
+            <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+            <main class="dashboard-content">
+                <div class="page-head">
+                    <div>
+                        <h1>Edit Profile</h1>
+
+                        <p>
+                            Update your buyer information, profile picture and cover photo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MESSAGE -->
+
+                <div id="message" class="notice" hidden></div>
+
+                <!-- =================================================
+               PROFILE FORM
+          ================================================== -->
+
+                <form class="panel" id="profileForm">
+                    <!-- NAME + PHONE -->
+
+                    <div class="form-grid">
+                        <div class="field">
+                            <label class="label" for="name"> Full name </label>
+
+                            <input class="input" id="name" type="text" maxlength="120" placeholder="Enter your full name" required />
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="phone"> Phone </label>
+
+                            <input class="input" id="phone" type="tel" maxlength="30" placeholder="Enter phone number" />
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="field" style="margin-top: 16px">
+                        <label class="label" for="email"> Email </label>
+
+                        <input class="input" id="email" type="email" disabled />
+                    </div>
+
+                    <!-- BIO -->
+
+                    <div class="field" style="margin-top: 16px">
+                        <label class="label" for="bio"> Bio </label>
+
+                        <textarea class="textarea" id="bio" maxlength="1000" placeholder="Tell others a little about yourself..."></textarea>
+                    </div>
+
+                    <!-- ADDRESS -->
+
+                    <div class="field" style="margin-top: 16px">
+                        <label class="label" for="address">
+                Default delivery address
+              </label>
+
+                        <textarea class="textarea" id="address" maxlength="1000" placeholder="Enter your default delivery address..."></textarea>
+                    </div>
+
+                    <!-- =================================================
+                 PROFILE PICTURE
+            ================================================== -->
+
+                    <div class="field" style="margin-top: 20px">
+                        <label class="label" for="profileImageInput">
+                Profile picture
+              </label>
+
+                        <input class="input" id="profileImageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+
+                        <small class="muted">
+                Choose a JPG, PNG or WEBP image from your laptop. Maximum size:
+                5 MB.
+              </small>
+                    </div>
+
+                    <!-- =================================================
+                 COVER PHOTO
+            ================================================== -->
+
+                    <div class="field" style="margin-top: 20px">
+                        <label class="label" for="coverImageInput"> Cover photo </label>
+
+                        <input class="input" id="coverImageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+
+                        <small class="muted">
+                Choose a JPG, PNG or WEBP image from your laptop. Maximum size:
+                8 MB.
+              </small>
+                    </div>
+
+                    <!-- =================================================
+                 IMAGE PREVIEW
+            ================================================== -->
+
+                    <div style="
+                margin-top: 24px;
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                overflow: hidden;
+                background: #ffffff;
+              ">
+                        <!-- COVER -->
+
+                        <div style="
+                  position: relative;
+                  min-height: 220px;
+                  background: linear-gradient(135deg, #dbeafe, #ccfbf1);
+                  overflow: hidden;
+                ">
+                            <div id="coverPlaceholder" style="
+                    min-height: 220px;
+                    display: grid;
+                    place-items: center;
+                    text-align: center;
+                    padding: 20px;
+                  ">
+                                <div>
+                                    <div style="font-size: 3rem; margin-bottom: 8px">🖼️</div>
+
+                                    <strong> No cover photo </strong>
+                                </div>
+                            </div>
+
+                            <img id="coverImagePreview" src="" alt="Buyer cover photo preview" hidden style="
+                    display: block;
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                  " />
+                        </div>
+
+                        <!-- PROFILE PICTURE -->
+
+                        <div style="
+                  position: relative;
+                  margin-top: -54px;
+                  padding: 0 24px 20px;
+                ">
+                            <div style="
+                    width: 108px;
+                    height: 108px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 4px solid #ffffff;
+                    background: #ffffff;
+                    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.16);
+                    display: grid;
+                    place-items: center;
+                  ">
+                                <div id="profilePlaceholder" style="font-size: 2.6rem">
+                                    👤
+                                </div>
+
+                                <img id="profileImagePreview" src="" alt="Buyer profile picture preview" hidden style="
+                      display: block;
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                    " />
+                            </div>
+                        </div>
+
+                        <!-- PROFILE IMAGE INFO -->
+
+                        <div id="profileImageInfo" class="notice" style="margin: 0 24px 12px" hidden></div>
+
+                        <!-- COVER IMAGE INFO -->
+
+                        <div id="coverImageInfo" class="notice" style="margin: 0 24px 24px" hidden></div>
+                    </div>
+
+                    <!-- =================================================
+                 BUTTONS
+            ================================================== -->
+
+                    <div class="actions" style="margin-top: 22px">
+                        <button class="btn btn-primary" id="saveProfileBtn" type="submit">
+                Save profile
+              </button>
+
+                        <a class="btn btn-secondary" href="../../pages/buyer/profile.html">
+                Cancel
+              </a>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../../js/shared/config.js"></script>
+
+    <script src="../../js/shared/storage.js"></script>
+
+    <script src="../../js/shared/api.js"></script>
+
+    <script src="../../js/shared/utils.js"></script>
+
+    <script src="../../js/shared/navigation.js"></script>
+
+    <script src="../../js/buyer/buyer-guard.js"></script>
+
+    <script src="../../js/buyer/buyer-common.js"></script>
+
+    <script src="../../js/buyer/edit-profile.js"></script>
+</body>
+
+</html>

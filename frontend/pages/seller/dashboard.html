@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Market Hub</title>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="stylesheet" href="../../css/seller.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/seller/dashboard.html"><img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" /><span>Market Hub</span></a>
+            <div class="side-section">Seller</div>
+            <a class="side-link" href="../../pages/seller/dashboard.html">▦ Dashboard</a
+        >
+        <div class="side-section">Center</div>
+        <a class="side-link" href="../../pages/seller/center-request.html"
+          >◫ Center request</a
+        ><a
+          class="side-link"
+          href="../../pages/seller/center-request-status.html"
+          >◎ Request status</a
+        ><a class="side-link" href="../../pages/seller/center-profile.html"
+          >🏪 Center profile</a
+        >
+        <a class="side-link" href="../../pages/seller/edit-center.html"
+          >✎ Edit center</a
+        >
+        <div class="side-section">Commerce</div>
+        <a class="side-link" href="../../pages/seller/products.html"
+          >▣ Products</a
+        ><a class="side-link" href="../../pages/seller/add-product.html"
+          >＋ Add product</a
+        ><a class="side-link" href="../../pages/seller/inventory.html"
+          >▤ Inventory</a
+        >
+        <a class="side-link" href="../../pages/seller/orders.html">☷ Orders</a>
+            <div class="side-section">Insights</div>
+            <a class="side-link" href="../../pages/seller/reviews.html">★ Reviews</a
+        ><a class="side-link" href="../../pages/seller/analytics.html"
+          >◈ Analytics</a
+        ><a class="side-link" href="../../pages/seller/finance.html"
+          >◉ Finance</a
+        >
+        <div class="side-section">Account</div>
+        <a class="side-link" href="../../pages/seller/notifications.html"
+          >● Notifications</a
+        ><a class="side-link" href="../../pages/seller/profile.html"
+          >♙ Profile</a
+        ><a class="side-link" href="../../pages/seller/settings.html"
+          >⚙ Settings</a
+        >
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰</button
+            ><strong>Market Hub Seller</strong>
+          </div>
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/seller/notifications.html"
+              aria-label="Notifications"
+              >🔔</a
+            ><button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <div class="page-head">
+            <div>
+              <h1>Seller Dashboard</h1>
+              <p>
+                Manage your approved center, products, stock and orders from one
+                place.
+              </p>
+            </div>
+          </div>
+          <div id="sellerMessage" class="notice" hidden></div>
+          <section class="seller-banner">
+            <div class="center-logo" id="centerLogo">KC</div>
+            <div>
+              <span id="centerStatus" class="badge info"
+                >Checking center...</span
+              >
+              <h2 id="centerName" style="font-size: 2rem; margin-top: 10px">
+                Your Market Hub
+              </h2>
+              <p id="centerDescription">Center status will appear here.</p>
+            </div>
+            <div class="seller-actions">
+              <a
+                class="btn btn-secondary"
+                href="../../pages/seller/center-profile.html"
+                >View center</a
+              ><a
+                class="btn btn-primary"
+                href="../../pages/seller/add-product.html"
+                >Add product</a
+              >
+            </div>
+          </section>
+          <div class="metric-row">
+            <div class="metric">
+              <span>Active products</span><strong id="mProducts">—</strong>
+            </div>
+            <div class="metric">
+              <span>Total stock</span><strong id="mStock">—</strong>
+            </div>
+            <div class="metric">
+              <span>Pending orders</span><strong id="mOrders">—</strong>
+            </div>
+            <div class="metric">
+              <span>Average rating</span><strong id="mRating">—</strong>
+            </div>
+          </div>
+          <div class="admin-grid">
+            <section class="panel">
+              <div class="panel-title">
+                <h2>Recent orders</h2>
+                <a class="btn btn-link" href="../../pages/seller/orders.html"
+                  >View all</a
+                >
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Buyer</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentOrders">
+                    <tr>
+                      <td colspan="5">Loading...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-title">
+                <h2>Quick actions</h2>
+              </div>
+              <div class="grid">
+                <a
+                  class="card card-body"
+                  href="../../pages/seller/add-product.html"
+                  ><strong>＋ Add product</strong>
+                  <p class="muted">Create a product listing.</p></a
+                ><a
+                  class="card card-body"
+                  href="../../pages/seller/inventory.html"
+                  ><strong>▤ Update stock</strong>
+                  <p class="muted">Keep inventory accurate.</p></a
+                >
+                <a class="card card-body" href="../../pages/seller/orders.html"
+                  ><strong>☷ Process orders</strong>
+                  <p class="muted">Manage buyer orders.</p>
+                </a>
+    </div>
+    </section>
+    </div>
+    </main>
+    </div>
+    </div>
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/seller/seller-guard.js"></script>
+    <script src="../../js/seller/dashboard.js"></script>
+</body>
+
+</html>

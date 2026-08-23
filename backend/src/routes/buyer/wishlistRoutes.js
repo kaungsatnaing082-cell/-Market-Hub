@@ -1,0 +1,1 @@
+const r=require("express").Router(),a=require("../../middleware/authMiddleware"),b=require("../../middleware/buyerMiddleware"),c=require("../../controllers/buyer/wishlistController");r.use(a,b);r.get("/",c.list);r.post("/:productId",c.add);r.delete("/:productId",c.remove);module.exports=r;

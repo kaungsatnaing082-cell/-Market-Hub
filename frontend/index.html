@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Market Hub</title>
+    <meta name="description" content="Market Hub marketplace for buyers and sellers.">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="icon/icon4.svg" type="image/svg+xml" sizes="any">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="logo" href="index.html">
+                <img src="icon/icon4.svg" alt="Market Hub Logo" width="60" height="60">
+                <span class="logo-word">Market <span>Hub</span></span>
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="pages/public/products.html">Products</a>
+                <a href="pages/public/centers.html">Centers</a>
+                <a href="pages/public/categories.html">Categories</a>
+                <a href="pages/public/about.html">About</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn btn-secondary" href="pages/auth/login.html">Log in</a>
+                <a class="btn btn-primary" href="pages/auth/register.html">Create account</a>
+                <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">One marketplace. More possibilities.</span>
+                    <h1>Discover. Shop. <span>Sell. Grow.</span></h1>
+                    <p>Market Hub helps buyers find trusted products and gives sellers a clear path to build approved online centers.</p>
+                    <form class="search-box" data-global-search>
+                        <input class="input" aria-label="Search products or centers" placeholder="Search products, categories or centers...">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="pages/public/products.html">Explore products</a>
+                        <a class="btn btn-secondary" href="pages/auth/register.html">Open your center</a>
+                    </div>
+                    <div class="trust-strip"><span>✓ Clear seller approval</span><span>✓ Public product discovery</span><span>✓ Buyer reporting tools</span></div>
+                </div>
+                <div class="hero-visual" aria-label="Market Hub marketplace preview">
+                    <div class="hero-float two" id="heroPopularCenter"><strong>Popular center</strong>
+                        <div class="muted">Loading...</div>
+                    </div>
+                    <div class="hero-center">
+                        <div>
+                            <div class="big">🛍️</div><strong style="font-size:1.4rem">Everything starts with discovery.</strong></div>
+                    </div>
+                    <div class="hero-float one" id="heroTrendingProduct"><strong>Trending product</strong>
+                        <div class="muted">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-sm">
+            <div class="container grid grid-4">
+                <div class="card stat-card">
+                    <div class="stat-value" id="homeCenterCount">—</div>
+                    <div class="stat-label">Active centers</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value" id="homeBuyerCount">—</div>
+                    <div class="stat-label">Buyers</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value" id="homeProductCount">—</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value" id="homeOrderCount">—</div>
+                    <div class="stat-label">Orders served</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Popular now</span>
+                <h2 class="section-title">Products people are discovering</h2>
+                <p class="section-copy">Visitors can browse and search before registration. Account creation is only required when an action needs an identity.</p>
+                <div class="grid grid-4" id="homePopularProducts" style="margin-top:24px">
+                    <div class="panel">Loading products...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background:#eff6ff">
+            <div class="container">
+                <span class="eyebrow">Popular centers</span>
+                <h2 class="section-title">Trusted places worth exploring</h2>
+                <div class="grid grid-3" id="homePopularCenters" style="margin-top:24px">
+                    <div class="panel">Loading centers...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta">
+                    <div><span class="eyebrow" style="color:#93c5fd">For sellers</span>
+                        <h2 style="font-size:2rem;margin-top:8px">Build your center with a clear approval flow.</h2>
+                        <p style="color:#cbd5e1;margin-top:10px">Register as a seller, submit your center request, and start selling after admin approval.</p>
+                    </div>
+                    <a class="btn btn-primary" href="pages/auth/register.html">Start seller registration</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo"><span class="logo-mark">K</span><span>Market Hub</span></div>
+                    <p style="margin-top:14px;color:#cbd5e1;max-width:360px">Discover trusted centers, useful products and better selling opportunities in one marketplace.</p>
+                </div>
+                <div>
+                    <div class="footer-title">Explore</div>
+                    <div class="footer-list"><a href="pages/public/products.html">Products</a><a href="pages/public/centers.html">Centers</a><a href="pages/public/categories.html">Categories</a></div>
+                </div>
+                <div>
+                    <div class="footer-title">Account</div>
+                    <div class="footer-list"><a href="pages/auth/register.html">Create account</a><a href="pages/auth/login.html">Log in</a><a href="pages/auth/admin-login.html">Admin access</a></div>
+                </div>
+                <div>
+                    <div class="footer-title">Company</div>
+                    <div class="footer-list"><a href="pages/public/about.html">About</a><a href="pages/public/contact.html">Contact</a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Market Hub. Built for a clear and accessible marketplace experience.</div>
+        </div>
+    </footer>
+
+
+    <script src="js/shared/config.js"></script>
+    <script src="js/shared/storage.js"></script>
+    <script src="js/shared/api.js"></script>
+    <script src="js/shared/utils.js"></script>
+    <script src="js/shared/search.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/public/home.js"></script>
+
+</body>
+
+</html>

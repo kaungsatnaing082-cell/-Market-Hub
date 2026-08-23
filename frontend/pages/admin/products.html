@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Market Hub</title>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/admin/dashboard.html"><img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" /><span>Market Hub</span></a>
+            <div class="side-section">Overview</div>
+            <a class="side-link" href="../../pages/admin/dashboard.html">▦ Dashboard</a
+        >
+        <div class="side-section">Marketplace</div>
+        <a class="side-link" href="../../pages/admin/center-requests.html"
+          >◫ Center requests</a
+        >
+        <a class="side-link" href="../../pages/admin/centers.html"
+          >🏪 Centers</a
+        >
+        <a class="side-link" href="../../pages/admin/products.html"
+          >▣ Products</a
+        >
+        <a class="side-link" href="../../pages/admin/sellers.html">♟ Sellers</a>
+            <a class="side-link" href="../../pages/admin/buyers.html">♙ Buyers</a>
+            <div class="side-section">Control</div>
+            <a class="side-link" href="../../pages/admin/reports.html">⚑ Reports</a>
+            <a class="side-link" href="../../pages/admin/warnings.html">⚠ Warnings</a
+        >
+        <a class="side-link" href="../../pages/admin/finance.html">◈ Finance</a>
+            <a class="side-link" href="../../pages/admin/agreements.html">✎ Agreements</a
+        >
+        <a class="side-link" href="../../pages/admin/notifications.html"
+          >● Notifications</a
+        >
+        <a class="side-link" href="../../pages/admin/settings.html"
+          >⚙ Settings</a
+        >
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰</button
+            ><strong>Market Hub Admin</strong>
+          </div>
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/admin/notifications.html"
+              aria-label="Notifications"
+              >🔔</a
+            ><button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <div class="page-head">
+            <div>
+              <h1>Products</h1>
+              <p>Moderate active seller product listings.</p>
+            </div>
+          </div>
+          <div id="message" class="notice" hidden></div>
+          <div class="filter-row">
+            <input
+              class="input"
+              id="productSearch"
+              placeholder="Search product, center or seller"
+            /><select
+              class="select"
+              id="productStatus"
+              style="max-width: 200px"
+            >
+              <option value="">All statuses</option>
+              <option>ACTIVE</option>
+              <option>HIDDEN</option>
+              <option>OUT_OF_STOCK</option>
+              <option>DRAFT</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Center</th>
+                  <th>Seller</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Moderation</th>
+                </tr>
+              </thead>
+              <tbody id="productRows">
+                <tr>
+                  <td colspan="7">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/admin/admin-guard.js"></script>
+    <script src="../../js/admin/products.js"></script>
+  </body>
+</html>

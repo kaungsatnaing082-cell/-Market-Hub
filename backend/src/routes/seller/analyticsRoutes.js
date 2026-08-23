@@ -1,0 +1,1 @@
+const r=require("express").Router(),a=require("../../middleware/authMiddleware"),s=require("../../middleware/sellerMiddleware"),c=require("../../controllers/seller/analyticsController");r.use(a,s);r.get("/",c.summary);module.exports=r;

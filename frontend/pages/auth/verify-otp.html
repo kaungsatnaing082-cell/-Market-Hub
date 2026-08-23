@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verify Account | Market Hub</title>
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../css/auth.css" />
+  <link rel="stylesheet" href="../../css/responsive.css" />
+  <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-art">
+      <a class="logo" href="../../index.html">
+        <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+        <span>Market Hub</span>
+      </a>
+      <div>
+        <span class="eyebrow" style="color:#93c5fd">Trusted marketplace</span>
+        <h1>One account. A clearer marketplace journey.</h1>
+        <p>Browse publicly, then sign in when you need to buy, sell, review or manage Market Hub.</p>
+      </div>
+      <div>Secure access · Clear roles · Responsive UI</div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <h2>Verify your account</h2>
+        <p class="lead">Enter the 6-digit verification code sent to your email.</p>
+        <div id="message" class="notice" hidden></div>
+        <form class="auth-form" id="otpForm">
+          <div class="field">
+            <label class="label" for="otpCode">Verification code</label>
+            <input class="input" id="otpCode" inputmode="numeric" maxlength="6" placeholder="000000" />
+          </div>
+          <button class="btn btn-primary" type="button">Verify account</button>
+          <button class="btn btn-secondary" type="button">Resend code</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../js/shared/config.js"></script>
+  <script src="../../js/shared/storage.js"></script>
+  <script src="../../js/shared/api.js"></script>
+  <script src="../../js/shared/utils.js"></script>
+  <script src="../../js/shared/validation.js"></script>
+</body>
+</html>

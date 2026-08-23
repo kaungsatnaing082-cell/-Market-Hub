@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Market Hub</title>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/admin/dashboard.html"><img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" /><span>Market Hub</span></a>
+            <div class="side-section">Overview</div>
+            <a class="side-link" href="../../pages/admin/dashboard.html">▦ Dashboard</a
+        >
+        <div class="side-section">Marketplace</div>
+        <a class="side-link" href="../../pages/admin/center-requests.html"
+          >◫ Center requests</a
+        >
+        <a class="side-link" href="../../pages/admin/centers.html"
+          >🏪 Centers</a
+        >
+        <a class="side-link" href="../../pages/admin/products.html"
+          >▣ Products</a
+        >
+        <a class="side-link" href="../../pages/admin/sellers.html">♟ Sellers</a>
+            <a class="side-link" href="../../pages/admin/buyers.html">♙ Buyers</a>
+            <div class="side-section">Control</div>
+            <a class="side-link" href="../../pages/admin/reports.html">⚑ Reports</a>
+            <a class="side-link" href="../../pages/admin/warnings.html">⚠ Warnings</a
+        >
+        <a class="side-link" href="../../pages/admin/finance.html">◈ Finance</a>
+            <a class="side-link" href="../../pages/admin/agreements.html">✎ Agreements</a
+        >
+        <a class="side-link" href="../../pages/admin/notifications.html"
+          >● Notifications</a
+        >
+        <a class="side-link" href="../../pages/admin/settings.html"
+          >⚙ Settings</a
+        >
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰</button
+            ><strong>Market Hub Admin</strong>
+          </div>
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/admin/notifications.html"
+              aria-label="Notifications"
+              >🔔</a
+            ><button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <div class="page-head">
+            <div>
+              <h1>Agreements</h1>
+              <p>Create and review seller commission agreements.</p>
+            </div>
+          </div>
+          <div id="message" class="notice" hidden></div>
+          <div class="detail-grid">
+            <section class="panel">
+              <h2>New agreement</h2>
+              <form id="agreementForm">
+                <div class="field" style="margin-top: 12px">
+                  <label class="label">Seller / Center</label
+                  ><select
+                    class="select"
+                    id="agreementSeller"
+                    required
+                  ></select>
+                </div>
+                <div class="field" style="margin-top: 12px">
+                  <label class="label">Commission rate (%)</label
+                  ><input
+                    class="input"
+                    id="commissionRate"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="field" style="margin-top: 12px">
+                  <label class="label">Status</label
+                  ><select class="select" id="agreementStatus">
+                    <option>DRAFT</option>
+                    <option>ACTIVE</option>
+                    <option>ENDED</option>
+                  </select>
+                </div>
+                <div class="field" style="margin-top: 12px">
+                  <label class="label">Terms</label
+                  ><textarea class="textarea" id="agreementTerms"></textarea>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 14px">
+                  Save agreement
+                </button>
+              </form>
+            </section>
+            <section class="panel">
+              <h2>Agreement guidance</h2>
+              <p class="muted" style="margin-top: 10px">
+                Activating a new agreement for the same center ends its previous
+                active agreement automatically.
+              </p>
+            </section>
+          </div>
+          <div class="table-wrap" style="margin-top: 18px">
+            <table>
+              <thead>
+                <tr>
+                  <th>Seller</th>
+                  <th>Center</th>
+                  <th>Commission</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="agreementRows">
+                <tr>
+                  <td colspan="5">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/admin/admin-guard.js"></script>
+    <script src="../../js/admin/agreements.js"></script>
+  </body>
+</html>

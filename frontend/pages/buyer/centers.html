@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Centers | Market Hub</title>
+
+    <link rel="stylesheet" href="../../css/global.css" />
+
+    <link rel="stylesheet" href="../../css/components.css" />
+
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+
+    <link rel="stylesheet" href="../../css/buyer.css" />
+
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link
+      rel="icon"
+      href="../../icon/icon4.svg"
+      type="image/svg+xml"
+      sizes="any"
+    />
+  </head>
+
+  <body class="dashboard-body">
+    <div class="admin-shell">
+      <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+      <aside class="sidebar">
+        <a class="logo" href="../../pages/buyer/dashboard.html">
+          <img
+            src="../../icon/icon4.svg"
+            alt="Market Hub Logo"
+            width="60"
+            height="60"
+          />
+
+          <span> Market Hub </span>
+        </a>
+
+        <div class="side-section">Buyer</div>
+
+        <a class="side-link" href="../../pages/buyer/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/explore.html">
+          ⌕ Explore
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/products.html">
+          ▣ Products
+        </a>
+
+        <a class="side-link active" href="../../pages/buyer/centers.html">
+          🏪 Centers
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/categories.html">
+          ◫ Categories
+        </a>
+
+        <div class="side-section">Shopping</div>
+
+        <a class="side-link" href="../../pages/buyer/cart.html">
+          🛒 Cart
+
+          <span class="badge info" id="sidebarCartCount"> 0 </span>
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/orders.html">
+          ☷ Orders
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/wishlist.html">
+          ♡ Wishlist
+        </a>
+
+        <div class="side-section">Community</div>
+
+        <a class="side-link" href="../../pages/buyer/reviews.html">
+          ★ Reviews
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/reports.html">
+          ⚑ Reports
+        </a>
+
+        <div class="side-section">Account</div>
+
+        <a class="side-link" href="../../pages/buyer/notifications.html">
+          ● Notifications
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/profile.html">
+          ♙ Profile
+        </a>
+
+        <a class="side-link" href="../../pages/buyer/settings.html">
+          ⚙ Settings
+        </a>
+      </aside>
+
+      <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+      <div class="dashboard-main">
+        <!-- ===================================================
+           TOPBAR
+      ==================================================== -->
+
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰
+            </button>
+
+            <strong> Market Hub Buyer </strong>
+          </div>
+
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/buyer/cart.html"
+              aria-label="Cart"
+            >
+              🛒
+            </a>
+
+            <a
+              class="icon-btn"
+              href="../../pages/buyer/notifications.html"
+              aria-label="Notifications"
+            >
+              🔔
+            </a>
+
+            <button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+
+        <!-- ===================================================
+           PAGE
+      ==================================================== -->
+
+        <main class="dashboard-content centers-page">
+          <!-- =================================================
+             HERO
+        ================================================== -->
+
+          <section class="centers-hero">
+            <div class="centers-hero-content">
+              <div class="centers-eyebrow">🏪 Marketplace Directory</div>
+
+              <h1>Discover Trusted Centers</h1>
+
+              <p>
+                Explore approved marketplace centers, discover their products
+                and shop from sellers you trust.
+              </p>
+
+              <div class="centers-hero-tags">
+                <span> ✓ Approved sellers </span>
+
+                <span> 🛍️ Multiple categories </span>
+
+                <span> ★ Buyer reviews </span>
+              </div>
+            </div>
+
+            <div class="centers-hero-art">
+              <div class="centers-hero-icon">🏬</div>
+            </div>
+          </section>
+
+          <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+          <section class="centers-search-panel">
+            <div class="centers-search-title">
+              <div>
+                <h2>Find a Center</h2>
+
+                <p>Search by center name or category.</p>
+              </div>
+            </div>
+
+            <div class="center-search-wrap">
+              <div class="center-search-input-wrap">
+                <span class="center-search-icon"> ⌕ </span>
+
+                <input
+                  class="input"
+                  id="centerSearch"
+                  type="search"
+                  placeholder="Search center name or category..."
+                  autocomplete="off"
+                />
+              </div>
+
+              <button
+                class="btn btn-primary center-search-btn"
+                id="centerSearchBtn"
+                type="button"
+              >
+                Search
+              </button>
+            </div>
+          </section>
+
+          <!-- =================================================
+             CENTER LIST HEADER
+        ================================================== -->
+
+          <section class="centers-list-section">
+            <div class="centers-section-head">
+              <div>
+                <h2>Explore Centers</h2>
+
+                <p class="muted">
+                  Browse approved stores available on Market Hub.
+                </p>
+              </div>
+
+              <div class="center-result-count" id="centerCount">Loading...</div>
+            </div>
+
+            <!-- ===============================================
+               CENTER GRID
+          ================================================ -->
+
+            <div class="center-market-grid" id="centerGrid">
+              <div class="center-loading-card">
+                <div class="center-loading-cover"></div>
+
+                <div class="center-loading-body">
+                  <div class="center-loading-logo"></div>
+
+                  <div class="center-loading-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="center-loading-card">
+                <div class="center-loading-cover"></div>
+
+                <div class="center-loading-body">
+                  <div class="center-loading-logo"></div>
+
+                  <div class="center-loading-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+    <script src="../../js/shared/config.js"></script>
+
+    <script src="../../js/shared/storage.js"></script>
+
+    <script src="../../js/shared/api.js"></script>
+
+    <script src="../../js/shared/utils.js"></script>
+
+    <script src="../../js/shared/navigation.js"></script>
+
+    <script src="../../js/buyer/buyer-guard.js"></script>
+
+    <script src="../../js/buyer/buyer-common.js"></script>
+
+    <script src="../../js/buyer/centers.js"></script>
+  </body>
+</html>

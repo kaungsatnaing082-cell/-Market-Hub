@@ -1,0 +1,923 @@
+/* =========================================================
+   KREST CENTER - SELLER
+========================================================= */
+
+
+/* =========================================================
+   SELLER / CENTER BANNER
+========================================================= */
+
+.seller-banner {
+    display: grid;
+    grid-template-columns: 96px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    min-height: 210px;
+    padding: 24px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8 58%, #0f766e);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.seller-banner::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    right: -100px;
+    top: -120px;
+    background: rgba(255, 255, 255, 0.09);
+    pointer-events: none;
+}
+
+.seller-banner p {
+    color: #dbeafe;
+}
+
+.center-logo {
+    width: 92px;
+    height: 92px;
+    border-radius: 24px;
+    background: #fff;
+    color: #1d4ed8;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: 950;
+    border: 4px solid rgba(255, 255, 255, 0.72);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.center-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seller-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+.metric-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.metric {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.metric strong {
+    display: block;
+    font-size: 1.65rem;
+}
+
+.metric span {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   PRODUCT / PROFILE / CENTER FORM GRID
+========================================================= */
+
+.product-form-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 18px;
+    align-items: start;
+}
+
+
+/* =========================================================
+   IMAGE DROP / PREVIEW AREA
+========================================================= */
+
+.image-drop {
+    min-height: 220px;
+    border: 2px dashed var(--border);
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 24px;
+    background: #f8fafc;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.image-drop:hover {
+    border-color: #3b82f6;
+    background: #f0f7ff;
+}
+
+.image-drop img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE UPLOAD
+========================================================= */
+
+.product-image-upload {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.product-image-upload input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ALL SELLER FILE INPUTS
+========================================================= */
+
+input[type="file"].input {
+    width: 100%;
+    min-height: 48px;
+    padding: 7px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    cursor: pointer;
+}
+
+input[type="file"].input:hover {
+    border-color: #3b82f6;
+}
+
+input[type="file"].input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+input[type="file"]::file-selector-button {
+    border: none;
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-right: 12px;
+    background: linear-gradient(135deg, #2563eb, #0f766e);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PREVIEW PANEL
+========================================================= */
+
+.product-form-grid>aside.panel {
+    position: sticky;
+    top: 88px;
+}
+
+.product-form-grid .panel-title {
+    margin-bottom: 16px;
+}
+
+.product-form-grid .panel-title h2 {
+    margin: 0 0 5px;
+    font-size: 1.15rem;
+}
+
+.product-form-grid .panel-title p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE PREVIEW
+========================================================= */
+
+#productImagePreview {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: #fff;
+}
+
+
+/* =========================================================
+   SELLER / CENTER COVER PREVIEW
+========================================================= */
+
+#coverPreviewBox {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#coverImagePreview {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SELLER / CENTER PROFILE PREVIEW
+========================================================= */
+
+#profileImagePreview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   IMAGE INFORMATION
+========================================================= */
+
+#selectedImageInfo,
+#profileImageInfo,
+#coverImageInfo {
+    font-size: 0.88rem;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   FORM HELP TEXT
+========================================================= */
+
+.field small.muted {
+    display: block;
+    margin-top: 7px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM BUTTONS
+========================================================= */
+
+.product-form-grid .btn {
+    min-height: 44px;
+}
+
+#publishProductBtn,
+#saveProductBtn,
+#saveProfileBtn,
+#saveCenterBtn {
+    min-width: 150px;
+}
+
+#publishProductBtn:disabled,
+#saveProductBtn:disabled,
+#saveProfileBtn:disabled,
+#saveCenterBtn:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   STOCK
+========================================================= */
+
+.stock-low {
+    color: #b45309;
+    font-weight: 850;
+}
+
+.stock-out {
+    color: #b91c1c;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.review-card {
+    padding: 18px;
+}
+
+.review-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   ANALYTICS
+========================================================= */
+
+.analytics-bars {
+    display: grid;
+    gap: 12px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 60px;
+    gap: 12px;
+    align-items: center;
+}
+
+.bar-track {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #14b8a6);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+    .seller-banner {
+        grid-template-columns: 90px 1fr;
+    }
+    .seller-actions {
+        grid-column: 1 / -1;
+    }
+    .metric-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    .product-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-form-grid>aside.panel {
+        position: static;
+    }
+    .image-drop {
+        min-height: 260px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+    .seller-banner {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .center-logo {
+        width: 82px;
+        height: 82px;
+    }
+    .metric-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .product-form-grid {
+        gap: 14px;
+    }
+    .product-form-grid .panel {
+        padding: 16px;
+    }
+    .image-drop {
+        min-height: 210px;
+        padding: 16px;
+    }
+    #productImagePreview {
+        max-height: 300px;
+    }
+    input[type="file"].input,
+    .product-image-upload input[type="file"] {
+        font-size: 0.9rem;
+    }
+    input[type="file"]::file-selector-button {
+        padding: 9px 11px;
+        margin-right: 8px;
+    }
+    #publishProductBtn,
+    #saveProductBtn,
+    #saveProfileBtn,
+    #saveCenterBtn {
+        width: 100%;
+    }
+    #editProductForm .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    #editProductForm .actions .btn {
+        width: 100%;
+    }
+    .bar-row {
+        grid-template-columns: 90px 1fr 46px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+    .seller-banner {
+        padding: 16px;
+    }
+    .metric {
+        padding: 15px;
+    }
+    .metric strong {
+        font-size: 1.45rem;
+    }
+    .product-form-grid .panel {
+        padding: 14px;
+    }
+    .image-drop {
+        min-height: 190px;
+        border-radius: 14px;
+    }
+    input[type="file"].input,
+    .product-image-upload input[type="file"] {
+        padding: 6px;
+    }
+    input[type="file"]::file-selector-button {
+        display: block;
+        width: 100%;
+        margin: 0 0 8px 0;
+    }
+}
+
+
+/* =========================================================
+   PRODUCT VARIANT SYSTEM
+========================================================= */
+
+.variant-enable-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    background: linear-gradient( 135deg, rgba(239, 246, 255, 0.96), rgba(240, 253, 250, 0.96));
+}
+
+.variant-enable-box strong {
+    display: block;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   VARIANT CHECKBOX
+========================================================= */
+
+.variant-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: max-content;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
+    color: #1e3a8a;
+    font-size: 0.9rem;
+    font-weight: 750;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.variant-switch:hover {
+    border-color: #60a5fa;
+    background: #f8fbff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+}
+
+.variant-switch input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VARIANT BUILDER
+========================================================= */
+
+.variant-builder {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    background: linear-gradient( 180deg, #ffffff, #f8fbff);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.045);
+}
+
+.variant-builder-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.variant-builder-head h2 {
+    margin: 0 0 5px;
+    color: #0f172a;
+    font-size: 1.08rem;
+}
+
+.variant-builder-head p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   VARIANT COUNT
+========================================================= */
+
+.variant-count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: linear-gradient( 135deg, #dbeafe, #ccfbf1);
+    color: #1e40af;
+    font-size: 0.82rem;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   VARIANT INPUT AREA
+========================================================= */
+
+.variant-builder .field {
+    min-width: 0;
+}
+
+.variant-builder .input {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.variant-builder .input:hover {
+    border-color: #93c5fd;
+}
+
+.variant-builder .input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   ADD VARIANT BUTTON
+========================================================= */
+
+#addVariantBtn {
+    min-width: 150px;
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 800;
+}
+
+#addVariantBtn:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+}
+
+#addVariantBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   VARIANT EMPTY STATE
+========================================================= */
+
+.variant-empty {
+    padding: 24px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 16px;
+    text-align: center;
+    background: #ffffff;
+}
+
+.variant-empty strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #334155;
+}
+
+.variant-empty p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   VARIANT TABLE
+========================================================= */
+
+.variant-list-wrap {
+    width: 100%;
+}
+
+.variant-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.variant-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+}
+
+.variant-table th,
+.variant-table td {
+    padding: 13px 14px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef2f7;
+}
+
+.variant-table th {
+    background: linear-gradient( 180deg, #f8fafc, #f1f5f9);
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.045em;
+}
+
+.variant-table td {
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.variant-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.variant-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.variant-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   REMOVE VARIANT BUTTON
+========================================================= */
+
+.remove-variant-btn {
+    min-height: 34px !important;
+    padding: 7px 11px;
+    border: 1px solid #fecaca !important;
+    background: #fff7f7 !important;
+    color: #b91c1c !important;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.remove-variant-btn:hover {
+    background: #fee2e2 !important;
+    border-color: #fca5a5 !important;
+}
+
+
+/* =========================================================
+   VARIANT GUIDE
+========================================================= */
+
+.variant-guide {
+    padding: 17px;
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    background: linear-gradient( 145deg, #f8fbff, #f0fdfa);
+}
+
+.variant-guide h3 {
+    margin: 0 0 14px;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.variant-guide-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.variant-guide-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.variant-guide-item strong {
+    color: #1e293b;
+    font-size: 0.88rem;
+}
+
+.variant-guide-item span {
+    color: #64748b;
+    font-size: 0.84rem;
+    text-align: right;
+}
+
+
+/* =========================================================
+   DISABLED INITIAL STOCK
+========================================================= */
+
+#stock:disabled {
+    cursor: not-allowed;
+    background: #f1f5f9;
+    color: #64748b;
+    border-color: #e2e8f0;
+}
+
+
+/* =========================================================
+   VARIANT FIELD ANIMATION
+========================================================= */
+
+#variantColorField,
+#variantSizeField,
+#weightFields,
+#volumeFields {
+    animation: variantFieldIn 0.22s ease;
+}
+
+@keyframes variantFieldIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   TABLET - VARIANT
+========================================================= */
+
+@media (max-width: 900px) {
+    .variant-enable-box {
+        align-items: flex-start;
+    }
+    .variant-builder {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE - VARIANT
+========================================================= */
+
+@media (max-width: 640px) {
+    .variant-enable-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .variant-switch {
+        width: 100%;
+        justify-content: center;
+        border-radius: 13px;
+    }
+    .variant-builder {
+        padding: 15px;
+        border-radius: 16px;
+    }
+    .variant-builder-head {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .variant-count-badge {
+        width: max-content;
+    }
+    #addVariantBtn {
+        width: 100%;
+    }
+    .variant-table-scroll {
+        border-radius: 13px;
+    }
+    .variant-table th,
+    .variant-table td {
+        padding: 11px 12px;
+    }
+    .variant-guide {
+        padding: 15px;
+    }
+    .variant-guide-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .variant-guide-item span {
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE - VARIANT
+========================================================= */
+
+@media (max-width: 420px) {
+    .variant-enable-box {
+        padding: 14px;
+    }
+    .variant-builder {
+        padding: 13px;
+    }
+    .variant-empty {
+        padding: 18px 12px;
+    }
+    .variant-table {
+        min-width: 620px;
+    }
+    .variant-guide {
+        padding: 13px;
+    }
+}

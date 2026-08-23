@@ -1,0 +1,47 @@
+.filter-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.filter-row .input {
+    max-width: 320px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 20px;
+}
+
+.definition {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.definition:last-child {
+    border-bottom: 0;
+}
+
+.definition dt {
+    font-weight: 800;
+    color: #334155;
+}
+
+.timeline {
+    display: grid;
+    gap: 14px;
+}
+
+.timeline-item {
+    padding-left: 16px;
+    border-left: 3px solid #cbd5e1;
+}
+
+.timeline-item strong {
+    display: block;
+}

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Product Detail | Market Hub</title>
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../../css/global.css" />
+
+    <link rel="stylesheet" href="../../css/components.css" />
+
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+
+    <link rel="stylesheet" href="../../css/admin.css" />
+
+    <link rel="stylesheet" href="../../css/seller.css" />
+
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <!-- ===================================================
+             SIDEBAR
+        ==================================================== -->
+
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/seller/dashboard.html">
+                <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+
+                <span> Market Hub </span>
+            </a>
+
+            <div class="side-section">Seller</div>
+
+            <a class="side-link" href="../../pages/seller/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+            <div class="side-section">Center</div>
+
+            <a class="side-link" href="../../pages/seller/center-request.html">
+          ◫ Center request
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-request-status.html">
+          ◎ Request status
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-profile.html">
+          🏪 Center profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/edit-center.html">
+          ✎ Edit center
+        </a>
+
+            <div class="side-section">Commerce</div>
+
+            <a class="side-link active" href="../../pages/seller/products.html">
+          ▣ Products
+        </a>
+
+            <a class="side-link" href="../../pages/seller/add-product.html">
+          ＋ Add product
+        </a>
+
+            <a class="side-link" href="../../pages/seller/inventory.html">
+          ▤ Inventory
+        </a>
+
+            <a class="side-link" href="../../pages/seller/orders.html">
+          ☷ Orders
+        </a>
+
+            <div class="side-section">Insights</div>
+
+            <a class="side-link" href="../../pages/seller/reviews.html">
+          ★ Reviews
+        </a>
+
+            <a class="side-link" href="../../pages/seller/analytics.html">
+          ◈ Analytics
+        </a>
+
+            <a class="side-link" href="../../pages/seller/finance.html">
+          ◉ Finance
+        </a>
+
+            <div class="side-section">Account</div>
+
+            <a class="side-link" href="../../pages/seller/notifications.html">
+          ● Notifications
+        </a>
+
+            <a class="side-link" href="../../pages/seller/profile.html">
+          ♙ Profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/settings.html">
+          ⚙ Settings
+        </a>
+        </aside>
+
+        <!-- ===================================================
+             MAIN
+        ==================================================== -->
+
+        <div class="dashboard-main">
+            <!-- ===============================================
+                 TOPBAR
+            ================================================ -->
+
+            <header class="dashboard-topbar">
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <button class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="Open menu">
+              ☰
+            </button>
+
+                    <strong> Market Hub Seller </strong>
+                </div>
+
+                <div class="actions">
+                    <a class="icon-btn" href="../../pages/seller/notifications.html" aria-label="Notifications">
+              🔔
+            </a>
+
+                    <button class="btn btn-secondary" data-logout>Log out</button>
+                </div>
+            </header>
+
+            <!-- ===============================================
+                 CONTENT
+            ================================================ -->
+
+            <main class="dashboard-content">
+                <!-- ===========================================
+                     PAGE HEAD
+                ============================================ -->
+
+                <div class="page-head">
+                    <div>
+                        <h1>Product Detail</h1>
+
+                        <p>Review product information, variants, prices and stock.</p>
+                    </div>
+
+                    <div class="actions" style="display: flex; gap: 10px; flex-wrap: wrap">
+                        <a href="../../pages/seller/products.html" class="btn btn-secondary">
+                ← Products
+              </a>
+
+                        <a href="#" class="btn btn-primary" id="editProductLink">
+                ✎ Edit Product
+              </a>
+                    </div>
+                </div>
+
+                <!-- ===========================================
+                     MESSAGE
+                ============================================ -->
+
+                <div id="message" class="notice" hidden></div>
+
+                <!-- ===========================================
+                     PRODUCT DETAIL
+                ============================================ -->
+
+                <section id="productDetail">
+                    <div class="panel">Loading product...</div>
+                </section>
+
+                <!-- ===========================================
+                     VARIANT SECTION
+                ============================================ -->
+
+                <section class="panel" id="variantSection" style="margin-top: 20px" hidden>
+                    <div class="variant-builder-head">
+                        <div>
+                            <h2>Product Variants</h2>
+
+                            <p class="muted">
+                                Colors, sizes, weights, volumes, prices and stock.
+                            </p>
+                        </div>
+
+                        <span class="variant-count-badge" id="variantCount">
+                0 variants
+              </span>
+                    </div>
+
+                    <!-- =======================================
+                         VARIANT TOTAL STOCK
+                    ======================================== -->
+
+                    <div class="metric-row" id="variantMetrics" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+                        <div class="metric">
+                            <span> Variants </span>
+
+                            <strong id="variantTotalCount"> 0 </strong>
+                        </div>
+
+                        <div class="metric">
+                            <span> Total stock </span>
+
+                            <strong id="variantTotalStock"> 0 </strong>
+                        </div>
+
+                        <div class="metric">
+                            <span> Available </span>
+
+                            <strong id="variantAvailableCount"> 0 </strong>
+                        </div>
+                    </div>
+
+                    <!-- =======================================
+                         NO VARIANTS
+                    ======================================== -->
+
+                    <div id="variantEmptyState" class="variant-empty" hidden>
+                        <strong> No variants </strong>
+
+                        <p class="muted">This product uses normal product stock.</p>
+                    </div>
+
+                    <!-- =======================================
+                         VARIANT TABLE
+                    ======================================== -->
+
+                    <div id="variantTableContainer" class="variant-list-wrap" hidden>
+                        <div class="variant-table-scroll">
+                            <table class="variant-table">
+                                <thead>
+                                    <tr>
+                                        <th>Option</th>
+
+                                        <th>Price</th>
+
+                                        <th>Stock</th>
+
+                                        <th>SKU</th>
+
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="variantTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../../js/shared/config.js"></script>
+
+    <script src="../../js/shared/storage.js"></script>
+
+    <script src="../../js/shared/api.js"></script>
+
+    <script src="../../js/shared/utils.js"></script>
+
+    <script src="../../js/shared/navigation.js"></script>
+
+    <script src="../../js/seller/seller-guard.js"></script>
+
+    <script src="../../js/seller/product-detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Edit Product | Market Hub</title>
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="../../css/global.css" />
+
+    <link rel="stylesheet" href="../../css/components.css" />
+
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+
+    <link rel="stylesheet" href="../../css/admin.css" />
+
+    <link rel="stylesheet" href="../../css/seller.css" />
+
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <!-- ===================================================
+             SIDEBAR
+        ==================================================== -->
+
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/seller/dashboard.html">
+                <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+
+                <span> Market Hub </span>
+            </a>
+
+            <div class="side-section">Seller</div>
+
+            <a class="side-link" href="../../pages/seller/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+            <div class="side-section">Center</div>
+
+            <a class="side-link" href="../../pages/seller/center-request.html">
+          ◫ Center request
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-request-status.html">
+          ◎ Request status
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-profile.html">
+          🏪 Center profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/edit-center.html">
+          ✎ Edit center
+        </a>
+
+            <div class="side-section">Commerce</div>
+
+            <a class="side-link active" href="../../pages/seller/products.html">
+          ▣ Products
+        </a>
+
+            <a class="side-link" href="../../pages/seller/add-product.html">
+          ＋ Add product
+        </a>
+
+            <a class="side-link" href="../../pages/seller/inventory.html">
+          ▤ Inventory
+        </a>
+
+            <a class="side-link" href="../../pages/seller/orders.html">
+          ☷ Orders
+        </a>
+
+            <div class="side-section">Insights</div>
+
+            <a class="side-link" href="../../pages/seller/reviews.html">
+          ★ Reviews
+        </a>
+
+            <a class="side-link" href="../../pages/seller/analytics.html">
+          ◈ Analytics
+        </a>
+
+            <a class="side-link" href="../../pages/seller/finance.html">
+          ◉ Finance
+        </a>
+
+            <div class="side-section">Account</div>
+
+            <a class="side-link" href="../../pages/seller/notifications.html">
+          ● Notifications
+        </a>
+
+            <a class="side-link" href="../../pages/seller/profile.html">
+          ♙ Profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/settings.html">
+          ⚙ Settings
+        </a>
+        </aside>
+
+        <!-- ===================================================
+             MAIN
+        ==================================================== -->
+
+        <div class="dashboard-main">
+            <!-- ===============================================
+                 TOPBAR
+            ================================================ -->
+
+            <header class="dashboard-topbar">
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <button class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="Open menu">
+              ☰
+            </button>
+
+                    <strong> Market Hub Seller </strong>
+                </div>
+
+                <div class="actions">
+                    <a class="icon-btn" href="../../pages/seller/notifications.html" aria-label="Notifications">
+              🔔
+            </a>
+
+                    <button class="btn btn-secondary" data-logout>Log out</button>
+                </div>
+            </header>
+
+            <!-- ===============================================
+                 PAGE
+            ================================================ -->
+
+            <main class="dashboard-content">
+                <div class="page-head">
+                    <div>
+                        <h1>Edit Product</h1>
+
+                        <p>Update product details, photo, price and product variants.</p>
+                    </div>
+                </div>
+
+                <!-- ===========================================
+                     MESSAGE
+                ============================================ -->
+
+                <div id="message" class="notice" hidden></div>
+
+                <div class="product-form-grid">
+                    <!-- =======================================
+                         LEFT
+                    ======================================== -->
+
+                    <div>
+                        <!-- ===================================
+                             PRODUCT FORM
+                        ==================================== -->
+
+                        <form class="panel" id="editProductForm">
+                            <!-- ===============================
+                                 NAME
+                            ================================ -->
+
+                            <div class="field">
+                                <label class="label" for="name"> Product name </label>
+
+                                <input class="input" id="name" type="text" maxlength="180" placeholder="Enter product name" required />
+                            </div>
+
+                            <!-- ===============================
+                                 CATEGORY
+                            ================================ -->
+
+                            <div class="field" style="margin-top: 16px">
+                                <label class="label" for="category"> Category </label>
+
+                                <select class="input" id="category" required>
+                    <option value="">Select category</option>
+
+                    <option value="Electronic">Electronic</option>
+
+                    <option value="Fashion">Fashion</option>
+
+                    <option value="Beauty">Beauty</option>
+
+                    <option value="Home & Living">Home & Living</option>
+
+                    <option value="Sports">Sports</option>
+
+                    <option value="Food & Beverage">Food & Beverage</option>
+
+                    <option value="Books">Books</option>
+
+                    <option value="Toys & Games">Toys & Games</option>
+
+                    <option value="Health & Personal Care">
+                      Health & Personal Care
+                    </option>
+
+                    <option value="Automotive">Automotive</option>
+
+                    <option value="Accessories">Accessories</option>
+
+                    <option value="Other">Other</option>
+                  </select>
+                            </div>
+
+                            <!-- ===============================
+                                 PRICE + STATUS
+                            ================================ -->
+
+                            <div class="form-grid" style="margin-top: 16px">
+                                <div class="field">
+                                    <label class="label" for="price"> Base price (MMK) </label>
+
+                                    <input class="input" id="price" type="number" min="0" step="1" inputmode="numeric" placeholder="Example: 85000" required />
+
+                                    <small class="muted">
+                      Variants may use their own price.
+                    </small>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label" for="status"> Status </label>
+
+                                    <select class="input" id="status">
+                      <option value="ACTIVE">ACTIVE</option>
+
+                      <option value="DRAFT">DRAFT</option>
+
+                      <option value="HIDDEN">HIDDEN</option>
+
+                      <option value="OUT_OF_STOCK">OUT OF STOCK</option>
+                    </select>
+                                </div>
+                            </div>
+
+                            <!-- ===============================
+                                 DESCRIPTION
+                            ================================ -->
+
+                            <div class="field" style="margin-top: 16px">
+                                <label class="label" for="description"> Description </label>
+
+                                <textarea class="textarea" id="description" maxlength="3000" placeholder="Describe the product, condition, features and other useful details..."></textarea>
+                            </div>
+
+                            <!-- ===============================
+                                 IMAGE
+                            ================================ -->
+
+                            <div class="field" style="margin-top: 16px">
+                                <label class="label" for="productImage">
+                    Replace product image
+                  </label>
+
+                                <input class="input" id="productImage" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+
+                                <small class="muted">
+                    Optional. If no image is selected, the current image will
+                    remain unchanged.
+                  </small>
+                            </div>
+
+                            <!-- ===============================
+                                 SAVE PRODUCT
+                            ================================ -->
+
+                            <div class="actions" style="margin-top: 22px">
+                                <button class="btn btn-primary" type="submit" id="saveProductBtn">
+                    Save product
+                  </button>
+
+                                <button class="btn btn-danger" type="button" id="deleteProduct">
+                    Delete product
+                  </button>
+                            </div>
+                        </form>
+
+                        <!-- ===================================
+                             VARIANT MANAGEMENT
+                        ==================================== -->
+
+                        <section class="panel" id="variantManagement" style="margin-top: 18px">
+                            <div class="variant-builder-head">
+                                <div>
+                                    <h2>Product Variants</h2>
+
+                                    <p class="muted">
+                                        Manage color, size, weight, volume, price and stock options.
+                                    </p>
+                                </div>
+
+                                <span class="variant-count-badge" id="variantCount">
+                    0 variants
+                  </span>
+                            </div>
+
+                            <!-- ===============================
+                                 INFORMATION
+                            ================================ -->
+
+                            <div class="notice" id="variantInfo" style="margin-bottom: 18px">
+                                If this product has variants, stock is calculated from the variant stock quantities.
+                            </div>
+
+                            <!-- ===============================
+                                 EDIT STATE
+                            ================================ -->
+
+                            <input type="hidden" id="editingVariantId" value="" />
+
+                            <div id="variantEditor" class="variant-builder" style="margin-top: 0">
+                                <div class="variant-builder-head">
+                                    <div>
+                                        <h2 id="variantEditorTitle">Add Variant</h2>
+
+                                        <p class="muted">
+                                            Add a new option or edit an existing one.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- ===========================
+                                     COLOR + SIZE
+                                ============================ -->
+
+                                <div class="form-grid">
+                                    <div class="field" id="variantColorField">
+                                        <label class="label" for="variantColor"> Color </label>
+
+                                        <input class="input" id="variantColor" type="text" maxlength="80" placeholder="Example: Black" />
+                                    </div>
+
+                                    <div class="field" id="variantSizeField">
+                                        <label class="label" for="variantSize"> Size </label>
+
+                                        <input class="input" id="variantSize" type="text" maxlength="50" placeholder="Example: S, M, L, XL, 40" />
+                                    </div>
+                                </div>
+
+                                <!-- ===========================
+                                     WEIGHT
+                                ============================ -->
+
+                                <div class="form-grid" id="weightFields" style="margin-top: 16px">
+                                    <div class="field">
+                                        <label class="label" for="variantWeightValue">
+                        Weight
+                      </label>
+
+                                        <input class="input" id="variantWeightValue" type="number" min="0" step="0.01" placeholder="Example: 500" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label" for="variantWeightUnit">
+                        Weight unit
+                      </label>
+
+                                        <select class="input" id="variantWeightUnit">
+                        <option value="">Select unit</option>
+
+                        <option value="g">g</option>
+
+                        <option value="kg">kg</option>
+                      </select>
+                                    </div>
+                                </div>
+
+                                <!-- ===========================
+                                     VOLUME
+                                ============================ -->
+
+                                <div class="form-grid" id="volumeFields" style="margin-top: 16px">
+                                    <div class="field">
+                                        <label class="label" for="variantVolumeValue">
+                        Volume
+                      </label>
+
+                                        <input class="input" id="variantVolumeValue" type="number" min="0" step="0.01" placeholder="Example: 500" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label" for="variantVolumeUnit">
+                        Volume unit
+                      </label>
+
+                                        <select class="input" id="variantVolumeUnit">
+                        <option value="">Select unit</option>
+
+                        <option value="ml">ml</option>
+
+                        <option value="L">L</option>
+                      </select>
+                                    </div>
+                                </div>
+
+                                <!-- ===========================
+                                     PRICE + STOCK
+                                ============================ -->
+
+                                <div class="form-grid" style="margin-top: 16px">
+                                    <div class="field">
+                                        <label class="label" for="variantPrice">
+                        Variant price (MMK)
+                      </label>
+
+                                        <input class="input" id="variantPrice" type="number" min="0" step="1" placeholder="Leave empty for base price" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label" for="variantStock">
+                        Variant stock
+                      </label>
+
+                                        <input class="input" id="variantStock" type="number" min="0" step="1" value="0" />
+                                    </div>
+                                </div>
+
+                                <!-- ===========================
+                                     SKU
+                                ============================ -->
+
+                                <div class="field" style="margin-top: 16px">
+                                    <label class="label" for="variantSku"> Variant SKU </label>
+
+                                    <input class="input" id="variantSku" type="text" maxlength="100" placeholder="Example: TS-BLK-M" />
+                                </div>
+
+                                <!-- ===========================
+                                     VARIANT ACTIONS
+                                ============================ -->
+
+                                <div class="actions" style="
+                      margin-top: 18px;
+                      display: flex;
+                      gap: 10px;
+                      flex-wrap: wrap;
+                    ">
+                                    <button type="button" class="btn btn-primary" id="saveVariantBtn">
+                      ＋ Add Variant
+                    </button>
+
+                                    <button type="button" class="btn btn-secondary" id="cancelVariantEditBtn" hidden>
+                      Cancel edit
+                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ===============================
+                                 VARIANT LIST
+                            ================================ -->
+
+                            <div class="variant-list-wrap" style="margin-top: 22px">
+                                <div id="variantEmptyState" class="variant-empty">
+                                    <strong> No variants </strong>
+
+                                    <p class="muted">
+                                        This product currently has no active variants.
+                                    </p>
+                                </div>
+
+                                <div id="variantTableContainer" hidden>
+                                    <div class="variant-table-scroll">
+                                        <table class="variant-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Option</th>
+
+                                                    <th>Price</th>
+
+                                                    <th>Stock</th>
+
+                                                    <th>SKU</th>
+
+                                                    <th>Status</th>
+
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody id="variantTableBody"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- =======================================
+                         RIGHT IMAGE PANEL
+                    ======================================== -->
+
+                    <aside class="panel">
+                        <div class="panel-title">
+                            <div>
+                                <h2>Product Image</h2>
+
+                                <p class="muted">
+                                    Current image is shown first. Selecting a new image previews the replacement.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="image-drop" id="imagePreviewContainer">
+                            <div id="imagePlaceholder" style="text-align: center">
+                                <div style="font-size: 3rem; margin-bottom: 8px">🖼️</div>
+
+                                <strong> No product image </strong>
+
+                                <p class="muted" style="margin-top: 6px">
+                                    Product image will appear here.
+                                </p>
+                            </div>
+
+                            <img id="productImagePreview" src="" alt="Product image preview" hidden style="
+                    width: 100%;
+                    max-height: 380px;
+                    object-fit: contain;
+                    border-radius: 14px;
+                  " />
+                        </div>
+
+                        <div id="selectedImageInfo" class="notice" style="margin-top: 16px" hidden></div>
+
+                        <!-- ===================================
+                             VARIANT GUIDE
+                        ==================================== -->
+
+                        <div class="variant-guide" style="margin-top: 20px">
+                            <h3>Product options</h3>
+
+                            <div class="variant-guide-item">
+                                <strong> 👕 Fashion </strong>
+
+                                <span> Color + Size </span>
+                            </div>
+
+                            <div class="variant-guide-item">
+                                <strong> 🍚 Food </strong>
+
+                                <span> g / kg </span>
+                            </div>
+
+                            <div class="variant-guide-item">
+                                <strong> 🥤 Beverage </strong>
+
+                                <span> ml / L </span>
+                            </div>
+
+                            <div class="variant-guide-item">
+                                <strong> 🎧 Electronic </strong>
+
+                                <span> Color </span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../../js/shared/config.js"></script>
+
+    <script src="../../js/shared/storage.js"></script>
+
+    <script src="../../js/shared/api.js"></script>
+
+    <script src="../../js/shared/utils.js"></script>
+
+    <script src="../../js/shared/navigation.js"></script>
+
+    <script src="../../js/seller/seller-guard.js"></script>
+
+    <script src="../../js/seller/edit-product.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Market Hub</title>
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/admin/dashboard.html"><img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" /><span>Market Hub</span></a>
+
+            <div class="side-section">Overview</div>
+            <a class="side-link" href="../../pages/admin/dashboard.html">▦ Dashboard</a
+        >
+        <div class="side-section">Marketplace</div>
+        <a class="side-link" href="../../pages/admin/center-requests.html"
+          >◫ Center requests</a
+        >
+        <a class="side-link" href="../../pages/admin/centers.html"
+          >🏪 Centers</a
+        >
+        <a class="side-link" href="../../pages/admin/products.html"
+          >▣ Products</a
+        >
+        <a class="side-link" href="../../pages/admin/sellers.html">♟ Sellers</a>
+            <a class="side-link" href="../../pages/admin/buyers.html">♙ Buyers</a>
+            <div class="side-section">Control</div>
+            <a class="side-link" href="../../pages/admin/reports.html">⚑ Reports</a>
+            <a class="side-link" href="../../pages/admin/warnings.html">⚠ Warnings</a
+        >
+        <a class="side-link" href="../../pages/admin/finance.html">◈ Finance</a>
+            <a class="side-link" href="../../pages/admin/agreements.html">✎ Agreements</a
+        >
+        <a class="side-link" href="../../pages/admin/notifications.html"
+          >● Notifications</a
+        >
+        <a class="side-link" href="../../pages/admin/settings.html"
+          >⚙ Settings</a
+        >
+      </aside>
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button
+              class="icon-btn sidebar-toggle"
+              data-sidebar-toggle
+              aria-label="Open menu"
+            >
+              ☰</button
+            ><strong>Market Hub</strong>
+          </div>
+          <div class="actions">
+            <a
+              class="icon-btn"
+              href="../../pages/admin/notifications.html"
+              aria-label="Notifications"
+              >🔔</a
+            ><button class="btn btn-secondary" data-logout>Log out</button>
+          </div>
+        </header>
+        <main class="dashboard-content">
+          <div class="page-head">
+            <div>
+              <h1>Center Detail</h1>
+              <p>Moderate status and issue policy warnings.</p>
+            </div>
+          </div>
+          <div id="message" class="notice" hidden></div>
+          <div class="detail-grid">
+            <section class="panel" id="centerInfo">Loading center...</section>
+            <section class="panel">
+              <h2>Moderation</h2>
+              <label class="label" style="margin-top: 14px">Center status</label
+              ><select class="select" id="statusSelect">
+                <option>ACTIVE</option>
+                <option>WARNING</option>
+                <option>SUSPENDED</option>
+                <option>CLOSED</option>
+              </select>
+              <button
+                class="btn btn-primary"
+                id="saveStatus"
+                style="margin-top: 12px"
+              >
+                Save status
+              </button>
+              <hr
+                style="border: 0; border-top: 1px solid #e2e8f0; margin: 22px 0"
+              />
+              <h3>Issue warning</h3>
+              <div class="field" style="margin-top: 12px">
+                <label class="label">Reason</label
+                ><input
+                  class="input"
+                  id="warningReason"
+                  placeholder="Policy violation"
+                />
+              </div>
+              <div class="field" style="margin-top: 12px">
+                <label class="label">Level</label
+                ><select class="select" id="warningLevel">
+                  <option value="1">Level 1</option>
+                  <option value="2">Level 2</option>
+                  <option value="3">Level 3</option>
+                </select>
+              </div>
+              <div class="field" style="margin-top: 12px">
+                <label class="label">Details</label
+                ><textarea class="textarea" id="warningDetails"></textarea>
+              </div>
+              <button
+                class="btn btn-danger"
+                id="issueWarning"
+                style="margin-top: 12px"
+              >
+                Issue warning
+              </button>
+            </section>
+          </div>
+          <section class="panel" style="margin-top: 18px">
+            <div class="panel-title">
+              <h2>Warning history</h2>
+            </div>
+            <div id="warningHistory">Loading...</div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/admin/admin-guard.js"></script>
+    <script src="../../js/admin/center-detail.js"></script>
+  </body>
+</html>

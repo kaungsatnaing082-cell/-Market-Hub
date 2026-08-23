@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Market Hub</title>
+
+    <link rel="stylesheet" href="../../css/global.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/admin.css" />
+    <link rel="stylesheet" href="../../css/seller.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+
+    <link rel="icon" href="../../icon/icon4.svg" type="image/svg+xml" sizes="any" />
+</head>
+
+<body class="dashboard-body">
+    <div class="admin-shell">
+        <!-- ===================================================
+           SELLER SIDEBAR
+      ==================================================== -->
+        <aside class="sidebar">
+            <a class="logo" href="../../pages/seller/dashboard.html">
+                <img src="../../icon/icon4.svg" alt="Market Hub Logo" width="60" height="60" />
+                <span>Market Hub</span>
+            </a>
+
+            <div class="side-section">Seller</div>
+
+            <a class="side-link" href="../../pages/seller/dashboard.html">
+          ▦ Dashboard
+        </a>
+
+            <div class="side-section">Center</div>
+
+            <a class="side-link" href="../../pages/seller/center-request.html">
+          ◫ Center request
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-request-status.html">
+          ◎ Request status
+        </a>
+
+            <a class="side-link" href="../../pages/seller/center-profile.html">
+          🏪 Center profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/edit-center.html">
+          ✎ Edit center
+        </a>
+
+            <div class="side-section">Commerce</div>
+
+            <a class="side-link" href="../../pages/seller/products.html">
+          ▣ Products
+        </a>
+
+            <a class="side-link" href="../../pages/seller/add-product.html">
+          ＋ Add product
+        </a>
+
+            <a class="side-link" href="../../pages/seller/inventory.html">
+          ▤ Inventory
+        </a>
+
+            <a class="side-link" href="../../pages/seller/orders.html">
+          ☷ Orders
+        </a>
+
+            <div class="side-section">Insights</div>
+
+            <a class="side-link" href="../../pages/seller/reviews.html">
+          ★ Reviews
+        </a>
+
+            <a class="side-link" href="../../pages/seller/analytics.html">
+          ◈ Analytics
+        </a>
+
+            <a class="side-link" href="../../pages/seller/finance.html">
+          ◉ Finance
+        </a>
+
+            <div class="side-section">Account</div>
+
+            <a class="side-link" href="../../pages/seller/notifications.html">
+          ● Notifications
+        </a>
+
+            <a class="side-link active" href="../../pages/seller/profile.html">
+          ♙ Profile
+        </a>
+
+            <a class="side-link" href="../../pages/seller/settings.html">
+          ⚙ Settings
+        </a>
+        </aside>
+
+        <!-- ===================================================
+           MAIN CONTENT
+      ==================================================== -->
+        <div class="dashboard-main">
+            <header class="dashboard-topbar">
+                <div style="display: flex; align-items: center; gap: 10px">
+                    <button class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="Open menu">
+              ☰
+            </button>
+
+                    <strong>Market Hub Seller</strong>
+                </div>
+
+                <div class="actions">
+                    <a class="icon-btn" href="../../pages/seller/notifications.html" aria-label="Notifications">
+              🔔
+            </a>
+
+                    <button class="btn btn-secondary" data-logout>Log out</button>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <div class="page-head">
+                    <div>
+                        <h1>Seller Profile</h1>
+                        <p>
+                            Manage your seller account, profile picture and cover photo.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="message" class="notice" hidden></div>
+
+                <div class="product-form-grid">
+                    <!-- ===========================================
+                 PROFILE FORM
+            ============================================ -->
+                    <form class="panel" id="profileForm">
+                        <div class="form-grid">
+                            <div class="field">
+                                <label class="label" for="name"> Full name </label>
+
+                                <input class="input" id="name" type="text" maxlength="120" required />
+                            </div>
+
+                            <div class="field">
+                                <label class="label" for="phone"> Phone </label>
+
+                                <input class="input" id="phone" type="tel" maxlength="30" />
+                            </div>
+                        </div>
+
+                        <div class="field" style="margin-top: 16px">
+                            <label class="label" for="email"> Email </label>
+
+                            <input class="input" id="email" type="email" disabled />
+                        </div>
+
+                        <!-- =========================================
+                   PROFILE PICTURE
+              ========================================== -->
+                        <div class="field" style="margin-top: 20px">
+                            <label class="label" for="profileImageInput">
+                  Profile picture
+                </label>
+
+                            <input class="input" id="profileImageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+
+                            <small class="muted">
+                  Choose JPG, PNG or WEBP from your laptop. Maximum size: 5 MB.
+                </small>
+                        </div>
+
+                        <!-- =========================================
+                   COVER PHOTO
+              ========================================== -->
+                        <div class="field" style="margin-top: 20px">
+                            <label class="label" for="coverImageInput"> Cover photo </label>
+
+                            <input class="input" id="coverImageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp" />
+
+                            <small class="muted">
+                  Choose JPG, PNG or WEBP from your laptop. Maximum size: 8 MB.
+                </small>
+                        </div>
+
+                        <button class="btn btn-primary" id="saveProfileBtn" type="submit" style="margin-top: 22px">
+                Save profile
+              </button>
+                    </form>
+
+                    <!-- ===========================================
+                 PROFILE PREVIEW
+            ============================================ -->
+                    <aside class="panel">
+                        <div class="panel-title">
+                            <div>
+                                <h2>Profile Preview</h2>
+                                <p class="muted">
+                                    Your current images are shown here. Choosing a new image will preview it before saving.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Cover Preview -->
+                        <div id="coverPreviewBox" style="
+                  position: relative;
+                  min-height: 210px;
+                  border: 1px solid var(--border);
+                  border-radius: 18px;
+                  overflow: hidden;
+                  background: linear-gradient(135deg, #dbeafe, #ccfbf1);
+                ">
+                            <div id="coverPlaceholder" style="
+                    min-height: 210px;
+                    display: grid;
+                    place-items: center;
+                    text-align: center;
+                    padding: 20px;
+                  ">
+                                <div>
+                                    <div style="font-size: 2.8rem">🖼️</div>
+                                    <strong>No cover photo</strong>
+                                </div>
+                            </div>
+
+                            <img id="coverImagePreview" src="" alt="Seller cover photo preview" hidden style="width: 100%; height: 210px; object-fit: cover" />
+                        </div>
+
+                        <!-- Profile Preview -->
+                        <div style="
+                  margin-top: -48px;
+                  position: relative;
+                  padding-left: 22px;
+                ">
+                            <div style="
+                    width: 96px;
+                    height: 96px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 4px solid white;
+                    background: #ffffff;
+                    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+                    display: grid;
+                    place-items: center;
+                  ">
+                                <div id="profilePlaceholder" style="font-size: 2.1rem">
+                                    👤
+                                </div>
+
+                                <img id="profileImagePreview" src="" alt="Seller profile picture preview" hidden style="width: 100%; height: 100%; object-fit: cover" />
+                            </div>
+                        </div>
+
+                        <div id="profileImageInfo" class="notice" style="margin-top: 18px" hidden></div>
+
+                        <div id="coverImageInfo" class="notice" style="margin-top: 10px" hidden></div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+    <script src="../../js/shared/config.js"></script>
+    <script src="../../js/shared/storage.js"></script>
+    <script src="../../js/shared/api.js"></script>
+    <script src="../../js/shared/utils.js"></script>
+    <script src="../../js/shared/navigation.js"></script>
+    <script src="../../js/seller/seller-guard.js"></script>
+    <script src="../../js/seller/profile.js"></script>
+</body>
+
+</html>
