@@ -1,1 +1,253 @@
-const db=require("../../config/db");exports.list=async(req,res,next)=>{try{const [pr]=await db.query(`SELECT pr.*,p.name product_name FROM product_reviews pr JOIN products p ON p.id=pr.product_id WHERE pr.buyer_id=? ORDER BY pr.created_at DESC`,[req.user.id]);const [cr]=await db.query(`SELECT cr.*,c.name center_name FROM center_reviews cr JOIN centers c ON c.id=cr.center_id WHERE cr.buyer_id=? ORDER BY cr.created_at DESC`,[req.user.id]);res.json({success:true,productReviews:pr,centerReviews:cr})}catch(e){next(e)}};exports.create=async(req,res,next)=>{try{const {type,targetId,rating,comment}=req.body;if(![1,2,3,4,5].includes(Number(rating)))return res.status(400).json({success:false,message:"Rating must be 1 to 5"});if(type==="PRODUCT"){const [ok]=await db.query(`SELECT 1 FROM orders o JOIN order_items oi ON oi.order_id=o.id WHERE o.buyer_id=? AND o.status='DELIVERED' AND oi.product_id=? LIMIT 1`,[req.user.id,targetId]);if(!ok.length)return res.status(403).json({success:false,message:"You can review a product after a delivered purchase"});await db.query(`INSERT INTO product_reviews(buyer_id,product_id,rating,comment) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE rating=VALUES(rating),comment=VALUES(comment)`,[req.user.id,targetId,rating,comment||null])}else if(type==="CENTER"){const [ok]=await db.query("SELECT 1 FROM orders WHERE buyer_id=? AND center_id=? AND status='DELIVERED' LIMIT 1",[req.user.id,targetId]);if(!ok.length)return res.status(403).json({success:false,message:"You can review a center after a delivered order"});await db.query(`INSERT INTO center_reviews(buyer_id,center_id,rating,comment) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE rating=VALUES(rating),comment=VALUES(comment)`,[req.user.id,targetId,rating,comment||null])}else return res.status(400).json({success:false,message:"Invalid review type"});res.status(201).json({success:true,message:"Review saved"})}catch(e){next(e)}};
+const db = require("../../config/db");
+
+
+exports.list = async(req, res, next) => {
+
+    try {
+
+        const [pr] = await db.query(
+            `
+            SELECT 
+                pr.*,
+                p.name product_name
+            FROM product_reviews pr
+            JOIN products p 
+            ON p.id = pr.product_id
+            WHERE pr.buyer_id=?
+            ORDER BY pr.created_at DESC
+            `, [
+                req.user.id
+            ]
+        );
+
+
+        const [cr] = await db.query(
+            `
+            SELECT
+                cr.*,
+                c.name center_name
+            FROM center_reviews cr
+            JOIN centers c
+            ON c.id = cr.center_id
+            WHERE cr.buyer_id=?
+            ORDER BY cr.created_at DESC
+            `, [
+                req.user.id
+            ]
+        );
+
+
+        res.json({
+
+            success: true,
+
+            productReviews: pr,
+
+            centerReviews: cr
+
+        });
+
+
+    } catch (e) {
+
+        next(e);
+
+    }
+
+};
+
+
+
+
+
+exports.create = async(req, res, next) => {
+
+
+    try {
+
+
+        const {
+            type,
+            targetId,
+            rating,
+            comment
+
+        } = req.body;
+
+
+
+        if (![1, 2, 3, 4, 5]
+            .includes(Number(rating))
+        ) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "Rating must be 1 to 5"
+
+            });
+
+        }
+
+
+
+
+
+        if (type === "PRODUCT") {
+
+
+            const [ok] =
+            await db.query(
+                `
+                SELECT 1
+                FROM orders o
+                JOIN order_items oi
+                ON oi.order_id=o.id
+                WHERE 
+                o.buyer_id=?
+                AND o.status='DELIVERED'
+                AND oi.product_id=?
+                LIMIT 1
+                `, [
+                    req.user.id,
+                    targetId
+                ]
+            );
+
+
+
+            if (!ok.length) {
+
+                return res.status(403).json({
+
+                    success: false,
+
+                    message: "You can review a product after a delivered purchase"
+
+                });
+
+            }
+
+
+
+            await db.query(
+                `
+                INSERT INTO product_reviews
+                (
+                    buyer_id,
+                    product_id,
+                    rating,
+                    comment
+                )
+                VALUES(?,?,?,?)
+
+                ON DUPLICATE KEY UPDATE
+
+                rating=VALUES(rating),
+                comment=VALUES(comment)
+
+                `, [
+                    req.user.id,
+                    targetId,
+                    rating,
+                    comment || null
+                ]
+            );
+
+
+        } else if (type === "CENTER") {
+
+
+            const [ok] =
+            await db.query(
+                `
+                SELECT 1
+                FROM orders
+                WHERE 
+                buyer_id=?
+                AND center_id=?
+                AND status='DELIVERED'
+                LIMIT 1
+                `, [
+                    req.user.id,
+                    targetId
+                ]
+            );
+
+
+
+            if (!ok.length) {
+
+                return res.status(403).json({
+
+                    success: false,
+
+                    message: "You can review a center after a delivered order"
+
+                });
+
+            }
+
+
+
+            await db.query(
+                `
+                INSERT INTO center_reviews
+                (
+                    buyer_id,
+                    center_id,
+                    rating,
+                    comment
+                )
+                VALUES(?,?,?,?)
+
+                ON DUPLICATE KEY UPDATE
+
+                rating=VALUES(rating),
+                comment=VALUES(comment)
+
+                `, [
+                    req.user.id,
+                    targetId,
+                    rating,
+                    comment || null
+                ]
+            );
+
+
+        } else {
+
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "Invalid review type"
+
+            });
+
+
+        }
+
+
+
+
+        res.status(201).json({
+
+            success: true,
+
+            message: "Review saved"
+
+        });
+
+
+
+    } catch (e) {
+
+        next(e);
+
+    }
+
+
+};

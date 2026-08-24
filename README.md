@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# -Market-Hub
-=======
 # Krest Center — FINAL INTEGRATED VERSION
 
 Krest Center is a three-role marketplace with a public discovery homepage.
@@ -92,4 +89,3 @@ The audit checks:
 ## Payment note
 
 `COD`, `KBZPay Demo`, and `WavePay Demo` are demonstration payment choices. No real payment is processed.
->>>>>>> 6ffe152 (Prepare Market Hub for deployment)
